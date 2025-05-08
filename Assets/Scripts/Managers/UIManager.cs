@@ -91,11 +91,13 @@ namespace SlowpokeStudio.Managers
         private void OnDinoButton()
         {
             Debug.Log("Dino Scene Active");
+            SceneManager.LoadScene("Arcade-Dino");
         }
 
         private void OnSpaceInaderButton()
         {
             Debug.Log("SpaceInvader Scene Active");
+            SceneManager.LoadScene("Arcade-SpaceInvaders");
         }
 
         private void OnGameModeCloseButton()

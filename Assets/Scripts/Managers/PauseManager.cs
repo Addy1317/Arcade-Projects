@@ -13,10 +13,17 @@ namespace SlowpokeStudio.Pause
         [SerializeField] private Button _homeButton;
         [SerializeField] private Button _closeButton;
 
+        private Scene currentScene;
+
+        private void Start()
+        {
+            currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+        }
         private void OnEnable()
         {
             _pauseButton.onClick.AddListener(OnPauseButton);
-            _restartButton.onClick.AddListener(OnRestartDinoSceneButton);
+            _restartButton.onClick.AddListener(OnRestartButton);
             _homeButton.onClick.AddListener(OnHomeButton);
             _closeButton.onClick.AddListener(OnClosePauseButton);
         }
@@ -24,7 +31,7 @@ namespace SlowpokeStudio.Pause
         private void OnDisable()
         {
             _pauseButton.onClick.RemoveListener(OnPauseButton);
-            _restartButton.onClick.RemoveListener(OnRestartDinoSceneButton);
+            _restartButton.onClick.RemoveListener(OnRestartButton);
             _homeButton.onClick.RemoveListener(OnHomeButton);
             _closeButton.onClick.RemoveListener(OnClosePauseButton);
         }
@@ -36,9 +43,10 @@ namespace SlowpokeStudio.Pause
             _pausePanel.SetActive(true);
         }
 
-        private void OnRestartDinoSceneButton()
+        private void OnRestartButton()
         {
-            SceneManager.LoadScene("Arcade-Dino");
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
 
         private void OnHomeButton()
