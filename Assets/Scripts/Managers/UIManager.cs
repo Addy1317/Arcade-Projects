@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace SlowpokeStudio.Managers
@@ -84,6 +85,7 @@ namespace SlowpokeStudio.Managers
         private void OnPongButton()
         {
             Debug.Log("Pong Scene Active");
+            SceneManager.LoadScene("Arcade-Pong");
         }
 
         private void OnDinoButton()
